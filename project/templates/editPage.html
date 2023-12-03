@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+  </head>
+  <body>
+    <h1>django</h1>
+    {% for s in ustu %}
+    <form action="{% url 'updatePage' s.id %}" method="POST">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="name"
+        id=""
+        placeholder="Name"
+        value="{{s.name}}"
+      />
+      <input
+        type="email"
+        name="email"
+        id=""
+        placeholder="Email"
+        value="{{s.email}}"
+      />
+      <input
+        type="text"
+        name="department"
+        id=""
+        placeholder="Department"
+        value="{{s.department}}"
+      />
+      <a href="{% url 'updatePage' s.id %}"><button type="submit">Update</button></a>
+    </form>
+    {% endfor %}
+    <br />
+  </body>
+</html>
