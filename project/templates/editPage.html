@@ -8,7 +8,7 @@
   <body>
     <h1>django</h1>
     {% for s in ustu %}
-    <form action="{% url 'updatePage' s.id %}" method="POST">
+    <form action="{% url 'updatePage' s.id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <input
         type="text"
@@ -31,6 +31,7 @@
         placeholder="Department"
         value="{{s.department}}"
       />
+      <input type="file" name="image" id="">
       <a href="{% url 'updatePage' s.id %}"><button type="submit">Update</button></a>
     </form>
     {% endfor %}

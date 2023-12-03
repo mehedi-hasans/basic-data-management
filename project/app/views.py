@@ -16,7 +16,6 @@ def home(request):
             department = department,
             image = image
         )
-        print(stu)
         stu.save()
         return redirect('home')
     students = Student.objects.all()
@@ -44,12 +43,14 @@ def updatePage(request, id):
         name = request.POST.get('name')
         email = request.POST.get('email')
         department = request.POST.get('department')
+        image = request.FILES.get('image')
         print(id)
         student= Student(
                 id=id,
                 name = name,
                 email = email,
                 department = department,
+                image = image
         )
         student.save()
         return redirect('home')
