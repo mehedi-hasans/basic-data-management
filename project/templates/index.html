@@ -7,11 +7,12 @@
 </head>
 <body>
     <h1>django</h1>
-    <form action="{% url 'home' %}" method="POST">
+    <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="text" name="name" id="" placeholder="Name">
         <input type="email" name="email" id="" placeholder="Email">
         <input type="text" name="department" id="" placeholder="Department">
+        <input type="file" name="image" id="">
         <button type="submit">Add</button>
     </form>
     <br>
@@ -29,6 +30,7 @@
             <td>{{s.name}}</td>
             <td>{{s.email}}</td>
             <td>{{s.department}}</td>
+            <td><img style='width: 50px' src="/{{s.image}}" alt=""></td>
             <td><a href="{% url 'editPage' s.id %}"><button type="button">Edit</button></a></td>
             <td><a href="{% url 'deletePage' s.id %}"><button type="button">Delete</button></a></td>
         </tr>

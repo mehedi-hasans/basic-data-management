@@ -8,11 +8,13 @@ def home(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         department = request.POST.get('department')
+        image = request.FILES.get('image')
 
         stu= Student(
             name = name,
             email = email,
             department = department,
+            image = image
         )
         print(stu)
         stu.save()
